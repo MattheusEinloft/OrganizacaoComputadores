@@ -75,6 +75,8 @@
 	# calculating the sum "b + c[3]" and storing the result in $s2
 	add $s2, $s1, $t1
 	
+	j exit
+	
 L2:
 	la $t0, addressA
 	
@@ -89,6 +91,10 @@ L2:
 	
 	# storing result in memory address of "a[4]"
 	sw $s0, 16($t0)
+	
+exit:
+	li $v0, 10
+	syscall
 
 .data
 addressA: .word 0, 1, 2,	# address of the array "a"
